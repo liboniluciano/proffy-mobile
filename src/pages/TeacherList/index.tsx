@@ -9,6 +9,7 @@ import { Feather } from '@expo/vector-icons';
 
 import styles from './styles';
 import api from '../../services/api';
+import { useFocusEffect } from '@react-navigation/native';
 
 const TeacherList: React.FC = () => {
   const [teachers, setTeachers] = useState([]);
@@ -31,6 +32,10 @@ const TeacherList: React.FC = () => {
       }
     });
   }
+
+  useFocusEffect(() => {
+    loadFavorites();
+  })
 
   function handleToggleFiltersVisible() {
     setIsFiltersVisible(!isfiltersVisible);
